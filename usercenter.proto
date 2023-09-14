@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package usercenter;
+import "google/protobuf/timestamp.proto";
+
+option go_package="./usercenter";
+
+message RegisterUserReq {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginUserReq {
+  string loginname = 1;
+  string password = 2;
+}
+
+message ChangePasswordReq {
+  uint64 id = 1;
+  string oldpassword = 2;
+  string password = 3;
+}
+
+message UserInfo {
+  optional uint64 id = 1;
+  optional string nickname = 2;
+  optional string avater = 3;
+  optional int64 created_at = 4;
+  optional int64 updated_at = 5;
+}
+
+message BaseMessage {}
+
+service RegisterLoginRpc {
+  rpc registerUser(RegisterUserReq) returns (UserInfo);
+  rpc loginUser(LoginUserReq) returns (UserInfo);
+  rpc changeUserPassword(ChangePasswordReq) returns (BaseMessage);
+}
+
+

@@ -1,0 +1,21 @@
+Name: usercenter.rpc
+ListenOn: 0.0.0.0:8080
+Etcd:
+  Hosts:
+  - ${ETCD_HOST}
+  Key: usercenter.rpc
+
+DatabaseConf:
+  MaxOpenConn: 100
+  SSLMode: disable # disable or require
+  CacheTime: 5
+
+Log:
+  ServiceName: UserCenterRpcLogger
+  Mode: file
+  Path: ./logs
+  Encoding: json
+  Level: info
+  Compress: false
+  KeepDays: 7
+  StackCoolDownMillis: 100

@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  usercenter-rpc:
+    image: bineanshi/usercenter-rpc:v0.1
+    environment:
+      - ETCD_HOST=etcd:2379
+      - DATABASE_SOURCE=root:123456@tcp(mysql:3306)/gbill?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+    ports:
+      - "8080:8080"
+    networks:
+      - app-tier
+
+networks:
+  app-tier:
+    external: true

@@ -1,0 +1,13 @@
+Name: usercenter.rpc
+ListenOn: 0.0.0.0:8080
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: usercenter.rpc
+
+DatabaseConf:
+  DataSource: root:123456@tcp(127.0.0.1:3306)/gbill?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+  MaxOpenConn: 100
+  SSLMode: disable # disable or require
+  CacheTime: 5
+
